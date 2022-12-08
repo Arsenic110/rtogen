@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+<h3>template gen</h3> </br>
+<textarea id="name" placeholder="Name"></textarea>
+</br>
+<textarea id="id" placeholder="DN"></textarea>
+<textarea id="eta" placeholder="ETA"></textarea>
+</br>
+<button onclick="generateRTO()">RTO</button>
+<button onclick="generateRTO(true)">RTO-D</button>
+<button onclick="generateCOA()">COA</button>
+<button onclick="generateCOA(true)">COA-D</button>
+<button onclick="generateRSD()">RSD</button>
+<button onclick="generateRSD(true)">RSD-D</button>
+<button onclick="generateU()">Generic Update</button>
+<button onclick="generateI()">Investigation</button>
+<button onclick="generateIU()">Investigation Update</button>
+<button onclick="generatePending()">SEMS Pending Delivery</button>
+<button onclick="generateDelivered()">Delivered</button>
+<button onclick="generateNotInNet()">Not In Network</button>
+<button onclick="generateNonCarrierIssue()">Non Carrier Issue</button>
+<button onclick="generateRefuseError()">Refused in Error</button>
+<button onclick="generateRefuseError(true)">Refused in Error-D</button>
+<button onclick="generateDoNotReassign()">No comment reassign</button>
+
+<script>
+function generateDoNotReassign()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+Please do not reassign SEMS without a comment.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+function generateRefuseError(d)
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+let text;
+
+if(d)
+{
+text = `DN ${id} Hi All,
+
+This order was refused in error and is currently out for delivery.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+else
+{
+text = `DN ${id} Hi All,
+
+This order was refused in error, please advise how to proceed?
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+function generateRSD(rsd)
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text;
+
+if(rsd)
+{
+text = `DN ${id} Hi All,
+
+Delivery has been rescheduled for ${eta} as requested.
+Please note delivery may be attempted today as this order is out for delivery scanned.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+else
+{
+text = `DN ${id} Hi All,
+
+Delivery has been rescheduled for ${eta} as requested.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+function generateNonCarrierIssue()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+DHL loss prevention team have carried out a full investigation.
+
+All of the images we have reviewed show the parcels intact and no signs of tampering with.
+
+No discrepancies were noted in the carrier network or by driver on delivery therefore, this is deemed a non-carrier issue.
+
+Please see POD attached.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+function generateNotInNet()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+This order is currently not in our delivery partner's network.
+
+Please reassign on ETA date.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function generateDelivered()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+This order has been delivered to customer.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+
+function generatePending()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+We do not keep SEMS pending delivery in our worklist, therefore, please hold SEMS and monitor Polaris for further updates.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function generateU()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+We will provide updates on this shortly.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function generateI()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+I have raised the investigation with our delivery partner and will advise of updates as soon as available.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+
+function generateIU()
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+
+let text = `DN ${id} Hi All,
+
+Investigations are ongoing. We will advise of a further update shortly.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function generateCOA(d)
+{
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+let text;
+
+if(d)
+{
+text = `DN ${id} Hi All,
+
+I have actioned the change of address. ETA for delivery to new address is ${eta}.
+Please note that delivery may be attempted today as this order is out for delivery scanned.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+else
+{
+text = `DN ${id} Hi All,
+
+I have actioned the change of address. ETA for delivery to new address is ${eta}.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function generateRTO(d)
+{
+
+
+
+console.clear();
+
+let id = document.getElementById("id").value;
+let eta = document.getElementById("eta").value;
+let name = document.getElementById("name").value;
+let text;
+
+if(d)
+{
+text = `DN ${id} Hi All,
+
+I will request that this order is RTO'd however, delivery may be attempted today as this is out for delivery scanned. 
+Once back in the depot we will arrange a return.
+ETA for RMA ${eta}.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+else
+{
+text = `DN ${id} Hi All,
+
+I will arrange RTO. ETA for RMA ${eta}.
+
+Regards,
+${name}
+Syncreon Customer Services`;
+}
+
+console.log(text);
+
+copyToClip(text);
+
+}
+
+function copyToClip(text)
+{
+navigator.clipboard.writeText(text)
+            .then(() => {
+              console.log('Text copied to clipboard');
+            })
+            .catch(err => {
+              console.error('Error in copying text: ', err);
+            });
+}
+
+</script>
+</body>
